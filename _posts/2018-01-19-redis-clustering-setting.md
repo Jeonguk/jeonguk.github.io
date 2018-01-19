@@ -10,9 +10,10 @@ categories: [redis, nosql]
 Redis Download
 https://redis.io/download
 
-1. Configure Redis Cluster master nodes
+### 1. Configure Redis Cluster master nodes
 
 * Redis node master1 (redis-master1.conf)
+
 ```
 port 6379
 cluster-enabled yes
@@ -20,7 +21,9 @@ cluster-config-file nodes1.conf
 cluster-node-timeout 5000
 appendonly yes
 ```
+
 * Redis node master2 (redis-master2.conf)
+
 ```
 port 6380
 cluster-enabled yes
@@ -28,7 +31,9 @@ cluster-config-file nodes2.conf
 cluster-node-timeout 5000
 appendonly yes
 ```
+
 *  Redis node master3 (redis-master3.conf)
+
 ```
 port 6381
 cluster-enabled yes
@@ -36,7 +41,8 @@ cluster-config-file nodes3.conf
 cluster-node-timeout 5000
 appendonly yes
 ```
-2. Redis server start
+### 2. Redis server start
+
 ```
 - redis-server redis-master1.conf
 - redis-server redis-master2.conf
@@ -50,6 +56,7 @@ appendonly yes
 * 이 시점에서 클러스터 모드로 실행되는 3 개의 Redis 마스터 노드가 있지만 실제로 클러스터를 형성하지는 않습니다 
 (모든 Redis 마스터 노드는 자체 만보고 다른 노드는 보이지 않습니다). 
 이를 확인하기 위해 각 인스턴스에 대해 CLUSTER NODES 명령 (Redis Cluster Commands 섹션 참조)을 개별적으로 실행할 수 있으며 실제 상황을 관찰 할 수 있습니다.
+
 ``` 
  jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6379 CLUSTER NODES
 d5cff78f514b6a647a2a226d603e5bf92034a2a6 :6379@16379 myself,master - 0 0 0 connected
@@ -72,19 +79,19 @@ OK
 ```
 
 ```
- jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6379 CLUSTER NODES
+jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6379 CLUSTER NODES
 9ce0eb4b5f3e3de992f3da657cc554d2ab7ecac7 127.0.0.1:6380@16380 master - 0 1516335902583 1 connected
 4197e26072f913acb878745ed851505bc0218989 127.0.0.1:6381@16381 master - 0 1516335903615 2 connected
 d5cff78f514b6a647a2a226d603e5bf92034a2a6 127.0.0.1:6379@16379 myself,master - 0 1516335901000 0 connected
 ```
 ```
- jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6380 CLUSTER NODES
+jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6380 CLUSTER NODES
 d5cff78f514b6a647a2a226d603e5bf92034a2a6 127.0.0.1:6379@16379 master - 0 1516335919786 0 connected
 9ce0eb4b5f3e3de992f3da657cc554d2ab7ecac7 127.0.0.1:6380@16380 myself,master - 0 1516335919000 1 connected
 4197e26072f913acb878745ed851505bc0218989 127.0.0.1:6381@16381 master - 0 1516335920806 2 connected
 ```
 ```
- jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6381 CLUSTER NODES
+jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6381 CLUSTER NODES
 9ce0eb4b5f3e3de992f3da657cc554d2ab7ecac7 127.0.0.1:6380@16380 master - 0 1516335932676 1 connected
 d5cff78f514b6a647a2a226d603e5bf92034a2a6 127.0.0.1:6379@16379 master - 0 1516335932155 0 connected
 4197e26072f913acb878745ed851505bc0218989 127.0.0.1:6381@16381 myself,master - 0 1516335931000 2 connected
@@ -109,6 +116,7 @@ Hash slots served
  이 제한을 극복하는 가장 간단한 방법 중 하나는 쉘 스크립팅을 사용하는 것입니다. 
  클러스터에 3 개의 Redis 마스터 노드가 있으므로 16384 개의 해시 슬롯 범위를 다음과 같이 나눌 수 있습니다.
 
+```
 - Redis node master1 contains hash slots 0 – 5400
 for slot in {0..5400}; do redis-cli -h 127.0.0.1 -p 6379 CLUSTER ADDSLOTS $slot; done;
 
@@ -120,15 +128,16 @@ for slot in {10801..16383}; do redis-cli -h 127.0.0.1 -p 6381 CLUSTER ADDSLOTS $
 
 * CLUSTER NODES 명령을 다시 한 번 실행하면 마지막 열은 각 마스터 노드에서 제공 한 적절한 해시 슬롯으로 채워집니다 
 (이전에 노드에 할당 한 해시 슬롯 범위와 정확히 일치 함).
+```
 
 ```
- jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6379 CLUSTER NODES
+jeonguk@JEONGUKui-MacBook-Pro  /usr/local/etc  redis-cli -h 127.0.0.1 -p 6379 CLUSTER NODES
 9ce0eb4b5f3e3de992f3da657cc554d2ab7ecac7 127.0.0.1:6380@16380 master - 0 1516336497114 1 connected 5401-10800
 4197e26072f913acb878745ed851505bc0218989 127.0.0.1:6381@16381 master - 0 1516336498148 2 connected 10801-16383
 d5cff78f514b6a647a2a226d603e5bf92034a2a6 127.0.0.1:6379@16379 myself,master - 0 1516336496000 0 connected 0-5400
 ```
 
-3. Configure Redis Cluster slave nodes and replication
+### 3. Configure Redis Cluster slave nodes and replication
 
 * Redis 클러스터를 완성하려면 각 실행중인 Redis 마스터 노드에 정확하게 하나의 슬레이브 노드를 추가해야합니다. 
 이 튜토리얼의 Part 3 인 Redis Replication은 복제 구성을 충분히 다루고 있지만 Redis 클러스터는 복제 구성을 다르게 처리합니다. 
@@ -199,6 +208,7 @@ dfb316d637ff84e6bf2e15169f5c6f13ab6aa849 127.0.0.1:7380@17380 master - 0 1516337
 
 * 복제를 구성하려면 마스터 노드 ID (name)를 제공하여 각 Redis 슬레이브에서 새로운 CLUSTER REPLICATE 명령을 실행해야합니다. 
 다음 테이블은 (CLUSTER NODES 명령 결과의 결과를 참조하여) 복제에 필요한 모든 부분을 함께 요약합니다.
+
 ```
 - redis-cli -h 127.0.0.1 -p 7379 CLUSTER REPLICATE d5cff78f514b6a647a2a226d603e5bf92034a2a6
 - redis-cli -h 127.0.0.1 -p 7380 CLUSTER REPLICATE 9ce0eb4b5f3e3de992f3da657cc554d2ab7ecac7
@@ -218,18 +228,20 @@ d5cff78f514b6a647a2a226d603e5bf92034a2a6 127.0.0.1:6379@16379 myself,master - 0 
 dfb316d637ff84e6bf2e15169f5c6f13ab6aa849 127.0.0.1:7380@17380 slave 9ce0eb4b5f3e3de992f3da657cc554d2ab7ecac7 0 1516337432116 1 connected
 ```
 
-4. Redis 클러스터가 올바르게 작동하는지 확인
+### 4. Redis 클러스터가 올바르게 작동하는지 확인
 
 * Redis의 경우 항상 그렇듯이 Redis 클러스터를 예상대로 작동시키는 가장 좋은 방법은 redis-cli를 사용하여 몇 가지 명령을 실행하는 것입니다. 
 클러스터의 노드는 명령을 프록시하지 않고 클라이언트를 대신 리디렉션하므로 (Sharding (Partitioning) Scheme 참조) 클라이언트는 이러한 프로토콜을 
 지원해야하므로 redis-cli가 -c 명령 줄 옵션과 함께 실행되어야합니다 ( 클러스터 지원 포함) :
+
 ```
 - redis-cli -h master1 -p 6379 -c
 ```
-* 
-저장된 키를 SET 명령을 사용하여 설정하고 나중에 쿼리 할 수 ​​있습니다 (GET 명령 사용). 
+
+* 저장된 키를 SET 명령을 사용하여 설정하고 나중에 쿼리 할 수 ​​있습니다 (GET 명령 사용). 
 세 개의 노드 사이에 해시 슬롯을 분산 시켰기 때문에 키는 모든 노드에 분산됩니다. 
 이름이 some-key 인 첫 번째 키는 우리가 연결되어있는 master1 노드 자체에 저장됩니다.
+
 ```
 127.0.0.1:6379> SET some-key some-value
 OK
@@ -240,6 +252,7 @@ OK
 * 그러나 키를 다른 키로 저장하려고하면 재미있는 일이 일어날 것입니다 : 
 redis-cli는 IP 주소가 127.0.0.1 (master3) 인 노드에 값이 저장 될 것이라고 말합니다. 
 이 키가 속한 해시 슬롯을 보유합니다.
+
 ```
 127.0.0.1:6379> SET some-another-key some-value-another-value
 -> Redirected to slot [15929] located at 127.0.0.1:6381
