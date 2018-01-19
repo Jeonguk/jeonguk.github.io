@@ -45,9 +45,17 @@ paginate: 20
 per_page: 20
 paginate_path: "/page/:num/"
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span: false
+highlighter: rouge
 gems:
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-multiple-languages-plugin
 
 compress_html:
   clippings: all
