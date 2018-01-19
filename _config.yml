@@ -1,4 +1,4 @@
-title: Development
+title: Jeonguk's blog
 description: Jeonguk's blog
 author: Jeonguk Lee
 github: https://github.com/jeonguk
@@ -21,7 +21,7 @@ social:
     - icon: fa-twitter
       link: "https://twitter.com/dev_jeonguk"
     - icon: fa-linkedin
-      link: "https://www.linkedin.com/in/jeonguk"
+      link: "#"
     - icon: fa-stack-exchange
       link: "#"
     - icon: fa-github
