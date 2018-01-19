@@ -12,7 +12,7 @@ https://redis.io/download
 
 1. Configure Redis Cluster master nodes
 
-    - Redis node master1 (redis-master1.conf)
+* Redis node master1 (redis-master1.conf)
 ```
 port 6379
 cluster-enabled yes
@@ -20,21 +20,21 @@ cluster-config-file nodes1.conf
 cluster-node-timeout 5000
 appendonly yes
 ```
-    - Redis node master2 (redis-master2.conf)
+* Redis node master2 (redis-master2.conf)
 ```
-        port 6380
-        cluster-enabled yes
-        cluster-config-file nodes2.conf
-        cluster-node-timeout 5000
-        appendonly yes
+port 6380
+cluster-enabled yes
+cluster-config-file nodes2.conf
+cluster-node-timeout 5000
+appendonly yes
 ```
-    - Redis node master3 (redis-master3.conf)
+*  Redis node master3 (redis-master3.conf)
 ```
-        port 6381
-        cluster-enabled yes
-        cluster-config-file nodes3.conf
-        cluster-node-timeout 5000
-        appendonly yes
+port 6381
+cluster-enabled yes
+cluster-config-file nodes3.conf
+cluster-node-timeout 5000
+appendonly yes
 ```
 2. Redis server start
 ```
