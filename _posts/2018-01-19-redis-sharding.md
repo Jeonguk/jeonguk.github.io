@@ -107,11 +107,3 @@ jeonguk@JEONGUKui-MacBook-Pro  ~  redis-cli -p 6382 MGET userkey somekey a
 마지막주의 사항 : twemproxy (nutcracker)는 Redis 프로토콜을 지원하지만, 
 Sharding (Partitioning) 섹션을 사용할 때의 제한 사항으로 인해 모든 명령이 지원되는 것은 아닙니다.
 twemproxy (nutcracker)에 대한 자세한 내용은 https://github.com/twitter/twemproxy를 참조하십시오. 최신 문서가 제공됩니다.
-
-**Test 1**
-
-```
-text: "The cat does not like the fire"
-forbiddenWords: ["cat", "fire"]
-Expected Output: "The *** does not like the ****"
-```
