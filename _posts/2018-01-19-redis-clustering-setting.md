@@ -263,12 +263,13 @@ OK
 
 * 명령 실행 후 redis-cli는 자동으로 노드 127.0.0.1 (master3)로 리디렉션됩니다. 
 클러스터 노드 127.0.0.1 (master3)에있게되면 CLUSTER GETKEYSINSLOT 명령을 실행하여 해시 슬롯에 실제로 다른 키가 포함되어 있는지 확인할 수 있습니다.
+
 ```
 127.0.0.1:6381> CLUSTER GETKEYSINSLOT 15929 1
 1) "some-another-key"
 ```
-* 우리는 또한 Redis 종속 노드 slave3이 master (master3)에서 key some-another-key를 복제하고 그 값을 반환하는지 확인할 수 있습니다.
 
+* 우리는 또한 Redis 종속 노드 slave3이 master (master3)에서 key some-another-key를 복제하고 그 값을 반환하는지 확인할 수 있습니다.
 
 ### Redis Sentinel
 
@@ -279,4 +280,3 @@ OK
 - 알림 : Sentinel은 모니터 된 Redis 인스턴스 중 하나에 문제가있을 경우이를 알릴 수 있습니다
 - 자동 페일 오버 : 일부 마스터 노드가 예상대로 작동하지 않는 경우 Sentinel은 페일 오버 프로세스를 시작할 수 있습니다.
 이 페일 오버 프로세스 중 하나는 마스터로 승격됩니다
-
