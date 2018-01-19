@@ -14,11 +14,11 @@ https://redis.io/download
 
     - Redis node master1 (redis-master1.conf)
 ```
-        port 6379
-        cluster-enabled yes
-        cluster-config-file nodes1.conf
-        cluster-node-timeout 5000
-        appendonly yes
+port 6379
+cluster-enabled yes
+cluster-config-file nodes1.conf
+cluster-node-timeout 5000
+appendonly yes
 ```
     - Redis node master2 (redis-master2.conf)
 ```
