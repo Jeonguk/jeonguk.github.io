@@ -9,5 +9,5 @@ permalink: /notes/
 ### youtube embeded
 
 ```
-{% include youtubePlayer.html id="g4-ecNSENb0" %}
+{ % include youtubePlayer.html id="g4-ecNSENb0" % }
 ```
