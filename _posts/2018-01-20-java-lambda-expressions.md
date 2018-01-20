@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lambda expressions in java"
-date:   2018-01-20 19:25:10 +0700
+date:   2018-01-20 21:37:10 +0700
 categories: [java, language]
 ---
 
