@@ -6,7 +6,7 @@ categories: [spring, nosql, elasticsearch]
 ---
 
 
-## Spring boot elasticsearch 5.5 configuration
+### Spring boot elasticsearch 5.5 configuration
 
 * Maven
 
