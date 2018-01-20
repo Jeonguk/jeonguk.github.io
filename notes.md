@@ -1,5 +1,5 @@
 ---
-layout: notes
+layout: post
 title: Notes
 permalink: /notes/
 ---
