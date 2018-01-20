@@ -8,8 +8,6 @@ categories: [video, youtube]
 ### youtube embeded test
 
 * 어피치
+{% include youtubePlayer.html id=g4-ecNSENb0 %}
 
-{ % youtube https://youtu.be/g4-ecNSENb0 % }
-
-{ % youtube https://youtu.be/xyZjniR39oY % }
-
+{% include youtubePlayer.html id=xyZjniR39oY %}
