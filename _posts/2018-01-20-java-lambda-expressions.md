@@ -82,7 +82,7 @@ public static void main(String args[]) {
 {% highlight java %}
 MyGreeting morningGreeting = (String str) -> "Good Morning " + str + "!";
 MyGreeting eveningGreeting = (String str) -> "Good Evening " + str + "!";
-{% highlight java %}
+{% endhighlight %}
 
 ### Block Lambda Expressions
 
@@ -149,6 +149,7 @@ public static void main(String args[]){
 	System.out.println(factorial.compute(5)); 
 
 }
+{% endhighlight %}
 
 ### Lambda Expressions as arguments
 
