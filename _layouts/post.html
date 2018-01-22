@@ -14,8 +14,7 @@
 </div>
 
 {% assign hasSimilar = '' %} {% for post in site.posts %} {% assign postHasSimilar = false %} {% for tag in post.categories %} {% for thisTag in page.categories %} {% if postHasSimilar == false and hasSimilar.size
-< 6 and post !=p age and tag==t hisTag
-    %} {% if hasSimilar.size==0 %} <div class="panel-body">
+< 6 and post !=p age and tag==t hisTag %} {% if hasSimilar.size==0 %} <div class="panel-body">
     <h4>Related Posts</h4>
     <ul>
         {% endif %}
