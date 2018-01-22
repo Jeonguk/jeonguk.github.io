@@ -9,7 +9,9 @@ categories: [java, language]
 
 * JVM Options Info
  
- ```
+> java -XX:+PrintCommandLineFlags -version
+
+```
  jeonguk@JEONGUKui-MacBook-Pro  ~  java -XX:+PrintCommandLineFlags -version
 -XX:InitialHeapSize=268435456 -XX:MaxHeapSize=4294967296 -XX:+PrintCommandLineFlags -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC
 java version "1.8.0_151"
