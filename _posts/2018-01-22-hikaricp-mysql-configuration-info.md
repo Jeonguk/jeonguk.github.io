@@ -12,7 +12,9 @@ categories: [mysql, configuration]
 * prepStmtCacheSize
 
 ```
-이 값은 MySQL 드라이버가 연결 당 캐시 할 prepared statements 의 수를 설정합니다. 기본값은 보수적입니다.이 값을 250-500 사이로 설정하는 것이 좋습니다.
+이 값은 MySQL 드라이버가 연결 당 캐시 할 prepared statements 의 수를 설정합니다. 
+기본값은 전통적(conservative)입니다.
+이 값을 250-500 사이로 설정하는 것이 좋습니다.
 ```
 
 * prepStmtCacheSqlLimit
@@ -27,7 +29,8 @@ MySQL의 디폴트는 256이다.
 * cachePrepStmts
 
 ```
-캐시가 사실상 사용 불가능한 경우, 위의 매개 변수 중 어느 것도 디폴트 값대로 적용되지 않습니다. 이 매개 변수를 true로 설정해야합니다.
+캐시가 사실상 사용 불가능한 경우, 위의 매개 변수 중 어느 것도 디폴트 값대로 적용되지 않습니다. 
+이 매개 변수를 true로 설정해야합니다.
 ```
 
 * useServerPrepStmts
