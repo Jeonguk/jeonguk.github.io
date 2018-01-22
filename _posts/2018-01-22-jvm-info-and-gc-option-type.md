@@ -41,3 +41,17 @@ G1 (In JDK 6, these two options must be used together.)
     -XX:+UseG1GC
 ```
 
+
+* Minor GC
+- Collecting garbage from Young space (consisting of Eden and Survivor spaces) is called a Minor GC. 
+* Major GC
+- cleaning the Tenured space.
+* Full GC
+- cleaning the entire Heap – both Young and Tenured spaces.
+
+> ps ef | grep java
+
+> jstat -gc -t <java process ID> 1s
+
+jstat Reference
+https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
