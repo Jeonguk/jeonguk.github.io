@@ -49,9 +49,12 @@ G1 (In JDK 6, these two options must be used together.)
 * Full GC
 - cleaning the entire Heap – both Young and Tenured spaces.
 
-> ps ef | grep java
-
-> jstat -gc -t <java process ID> 1s
+```
+ps ef | grep java
+```
+```
+jstat -gc -t <java process ID> 1s
+```
 
 jstat Reference
-https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
+- https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
