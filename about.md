@@ -9,7 +9,7 @@ permalink: /about/
 #### kakto1883@gmail.com
 
 ##
-### ``` Work History ```
+###  Work History 
 
 ##
 ### ``` 디비웨이 SI사업부 개발팀 ``` 2006.06 ~ 2009.05
