@@ -8,7 +8,7 @@ permalink: /about/
 ### JAVA DEVELOPER
 #### kakto1883@gmail.com
 
-### <span style="color:blue"> ``` Work History ``` </span>
+### ``` Work History ```
 
 ##
 ### ``` 디비웨이 SI사업부 개발팀 ``` 2006.06 ~ 2009.05
@@ -73,6 +73,7 @@ permalink: /about/
 ---
 
 ### Book search service project
-https://github.com/jeonguk/book-search-service
+
+<https://github.com/jeonguk/book-search-service>
 
 ---
