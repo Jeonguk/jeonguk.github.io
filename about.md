@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
@@ -8,10 +8,11 @@ permalink: /about/
 ### JAVA DEVELOPER
 #### kakto1883@gmail.com
 
-## ``` Work History ``` 
+### <span style="color:black">``` Work History ``` </span>
 
+##
 
-### ``` 디비웨이 SI사업부 개발팀 ``` 2006.06 ~ 2009.05
+### <span style="color:black">``` 디비웨이 SI사업부 개발팀 ``` </span> 2006.06 ~ 2009.05
 * KTH – KT 링고 (Ringback Tone) 서비스 개발 및 운영
 * 프로젝트 수행 역할
 	- Backend 개발, Frontend 개발
@@ -22,7 +23,7 @@ permalink: /about/
 	- Linux, Solaris, Oracle, Apache, Tomcat, Eclipse
 
 
-### ``` 한국능률협회 원격이러닝PU ``` 2009.07 ~ 2010.08 (계약)
+### <span style="color:black">``` 한국능률협회 원격이러닝PU ``` </span> 2009.07 ~ 2010.08 (계약)
 * LMS (원격 이러닝 교수 학습 시스템) 시스템 개발 및 운영
 * 프로젝트 수행 역할
 	- Backend 비지니스 로직 개발, Frontend 개발
@@ -32,7 +33,7 @@ permalink: /about/
 	- Windows, Oracle, WebtoB, Jeus, Eclipse
 
 
-### ``` 프리랜서 ``` 2010.10 ~ 2011.07
+### <span style="color:black">``` 프리랜서 ``` </span> 2010.10 ~ 2011.07
 * 교보문고 차세대 통합 물류 시스템 프로젝트
 * 프로젝트 수행 역할
 	- 통합 물류 시스템 데이터 인터페이스 개발
@@ -42,7 +43,7 @@ permalink: /about/
 	- UNIX, Solaris, Sybase, Oracle, WebtoB, Jeus, Eclipse
 
 
-### ``` 조인스 영업정보팀 ``` 2012.04 ~ 2017.04
+### <span style="color:black">``` 조인스 영업정보팀 ``` </span> 2012.04 ~ 2017.04
 * 차세대 출판 판매 시스템 및 그룹 회계 시스템 인터페이스 개발
 * 그룹 서비스 LOG 수집, 적재 및 Data 분석 기반 시스템 개발
 * 통합 검색엔진 인터페이스 API 개발
@@ -59,7 +60,7 @@ permalink: /about/
 	- Windows, Linux, Mssql, Oracle, PostgreSQL, Apache, Wildfly, Tomcat, SVN, Git, Ant, Maven, Gulp, Bower, Eclipse
 
 
-### ``` 아이리버 영상사업팀 ``` 2017.06 ~ 현재
+### <span style="color:black">``` 아이리버 영상사업팀 ``` </span> 2017.06 ~ 현재
 - SM Entertainment Vyrl2.0 서비스 개발
 * 프로젝트 수행 역할
 	- 클라이언트 요구 사항 정의
