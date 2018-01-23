@@ -37,7 +37,7 @@ permalink: /about/
 	- 통합 물류 시스템 데이터 인터페이스 개발
 	- DB 인터페이스 배치 시스템 개발
 * 사용기술 및 개발환경
-	- JAVA, Quartz, ibatis
+	- Java, Quartz, ibatis
 	- UNIX, Solaris, Sybase, Oracle, WebtoB, Jeus, Eclipse
 
 
@@ -52,7 +52,7 @@ permalink: /about/
 	- 클라이언트 요구 사항 정의
 	- 시스템 분석 및 설계
 	- Backend 비지니스 로직 개발, Frontend 개발
-* 사용기술 및 개봘환경
+* 사용기술 및 개발환경
 	- Java, JSP, C#, Spring framework(Spring boot, batch), Mybatis, Rest, Redis, Extjs, Angularjs, Bootstrap, jQuery, javascript, JSTL, Tiles, Thymeleaf, FFmpeg, HTML, CSS
 	- Flume, Kafka, Storm, Hadoop, Hive, Hbase
 	- Windows, Linux, Mssql, Oracle, PostgreSQL, Apache, Wildfly, Tomcat, SVN, Git, Ant, Maven, Gulp, Bower, Eclipse
