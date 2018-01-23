@@ -8,10 +8,8 @@ permalink: /about/
 ### JAVA DEVELOPER
 #### kakto1883@gmail.com
 
-##
 ###  Work History 
 
-##
 ### ``` 디비웨이 SI사업부 개발팀 ``` 2006.06 ~ 2009.05
 * KTH – KT 링고 (Ringback Tone) 서비스 개발 및 운영
 * 프로젝트 수행 역할
