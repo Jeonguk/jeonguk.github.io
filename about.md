@@ -25,6 +25,7 @@ permalink: /about/
 * LMS (원격 이러닝 교수 학습 시스템) 시스템 개발 및 운영
 * 프로젝트 수행 역할
 	- Backend 비지니스 로직 개발, Frontend 개발
+    - 서비스 개발 및 유지보수
 	- 고객 민원 처리
 * 사용기술 및 개발환경
 	- Java, JSP, Struts, ibatis, Javascript, HTML, CSS
@@ -52,6 +53,7 @@ permalink: /about/
 	- 클라이언트 요구 사항 정의
 	- 시스템 분석 및 설계
 	- Backend 비지니스 로직 개발, Frontend 개발
+    - 서비스 개발 및 유지보수
 * 사용기술 및 개발환경
 	- Java, JSP, C#, Spring framework(Spring boot, batch), Mybatis, Rest, Redis, Extjs, Angularjs, Bootstrap, jQuery, javascript, JSTL, Tiles, Thymeleaf, FFmpeg, HTML, CSS
 	- Flume, Kafka, Storm, Hadoop, Hive, Hbase
@@ -63,6 +65,7 @@ permalink: /about/
 * 프로젝트 수행 역할
 	- 클라이언트 요구 사항 정의
 	- Backend 비지니스 로직 개발, Frontend 개발
+    - 서비스 개발 및 유지보수
 * 사용기술 및 개발환경
 	- Java, Spring boot, Spring Batch, Rest, Hibernate/(JPA), Apache, Tomcat, Angularjs, javascript, Git, Ant, Maven, Bootstrap, HTML, CSS, Eclipse, Intellij
 	- AWS : ec2, s3, RDS(MySQL), ElastiCache(Redis), CloudFront, MongoDB, CodeDeploy, SNS, Mongodb, Elasticsearch
