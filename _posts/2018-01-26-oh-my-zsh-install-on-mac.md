@@ -38,3 +38,15 @@ $ echo $SHELL
 ```
 $ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 ```
+
+``` THEME ```
+
+https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes
+
+``` THEME 적용 ```
+
+```
+$ vim ~/.zshrc
+$ ZSH_THEME="agnoster"
+```
+
