@@ -2,7 +2,7 @@
 layout: post
 title:  "Flume - Kafka pipeline test"
 date:   2018-01-27 13:53:10 +0700
-categories: [bigdata]
+categories: [kafka,flume,bigdata]
 ---
 
 ## Apache Kafka
