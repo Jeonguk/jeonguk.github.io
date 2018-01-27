@@ -22,6 +22,7 @@ http://www.apache.org/dyn/closer.lua/flume/1.8.0/apache-flume-1.8.0-bin.tar.gz
 > apache-flume-1.8.0-bin/conf
 
 * apache-log.config
+
 ```
 LogAgent.sources = source1
 LogAgent.sinks = sink1
@@ -39,7 +40,6 @@ LogAgent.channels.channel1.transactionCapacity = 100
 
 LogAgent.sources.source1.channels = channel1
 LogAgent.sinks.sink1.channel = channel1
-
 ```
 
 ``` RUN TEST ```
