@@ -55,8 +55,8 @@ Created topic "log-topic".
 
 ``` Run a Kafka Consumer subscribed to the log-topic Topic ```
 ```
-cd $KAFKA_HOME
-bin/kafka-console-consumer.sh --zookeeper <ZooKeeper Hostname>:2181 --topic log-topic --from-beginning
+$ cd $KAFKA_HOME
+$ bin/kafka-console-consumer.sh --zookeeper <ZooKeeper Hostname>:2181 --topic log-topic --from-beginning
 ```
 
 ## Apache Flume info 
@@ -105,5 +105,5 @@ FlumeKafkaAgent.sinks.KafkaSink.channel = MemoryChannel
 
 ``` Launch the Flume Agent using the Kafka Channel and sinking to the Console ```
 ```
-bin/flume-ng agent --name FlumeKafkaAgent --conf conf --conf-file conf/flume-kafka.conf -Dflume.root.logger=DEBUG,console
+$ bin/flume-ng agent --name FlumeKafkaAgent --conf conf --conf-file conf/flume-kafka.conf -Dflume.root.logger=DEBUG,console
 ```
