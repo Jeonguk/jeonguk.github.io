@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Flume exec tail test"
+date:   2018-01-27 13:11:10 +0700
+categories: [bigdata]
+---
+
 ## Apache Flume info 
 
 ```

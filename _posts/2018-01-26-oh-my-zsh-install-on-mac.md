@@ -1,5 +1,11 @@
+---
+layout: post
+title:  "oh my zsh install on mac"
+date:   2018-01-26 13:11:10 +0700
+categories: [tools,others]
+---
 
-Oh My ZSH!
+## Oh My ZSH!
 
 
 ``` zsh 설치 확인 ```
