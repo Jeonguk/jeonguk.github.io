@@ -58,7 +58,7 @@ org.hibernate.dialect.MySQLMyISAMDialect
 org.hibernate.dialect.OracleDialect
 ```
 
-9. ``` Oracle 9i/10g ```
+``` Oracle 9i/10g ```
 
 ```
 org.hibernate.dialect.Oracle9Dialect
