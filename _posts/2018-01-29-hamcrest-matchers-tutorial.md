@@ -46,3 +46,88 @@ Expected: a value greater than <10>
      but: <7> was less than <10>
 ```
 
+# Example usage
+## Meet the Matchers
+
+```
+import static org.hamcrest.Matchers.*
+```
+
+### Simple Matchers
+
+``` any() ```
+
+* 지정된 유형의 모든 변수와 일치합니다.
+
+```java
+@Test
+public void test_any() throws Exception {
+    // Given
+    String myString = "hello";
+    
+    // Then
+    assertThat(myString, is(any(String.class)));		
+}
+```
+
+``` anything() ```
+
+```java
+@Test
+public void test_anything() throws Exception {
+    // Given
+    String myString = "hello";
+    Integer four = 4;
+    
+    // Then
+    assertThat(myString, is(anything()));
+    assertThat(four, is(anything()));
+}
+```
+
+``` arrayContaining() ```
+
+* 
+배열의 다양한 matchers, 배열의 길이는 matchers의 수와 일치해야하며, 순서는 중요합니다. 배열에는 정규 표현 엔진에 입력 된 순서대로 모든 항목이 포함되어 있습니까?
+
+```java
+@Test
+public void test_arrayContaining_items() throws Exception {
+    // Given
+    String[] strings = {"why", "hello", "there"};
+    
+    // Then
+    assertThat(strings, is(arrayContaining("why", "hello", "there")));
+}
+```
+
+* 배열에 matcher의 입력리스트와 순서가 일치하는 항목이 있습니까?
+
+```java
+@Test
+public void test_arrayContaining_list_of_matchers() throws Exception {
+    // Given
+    String[] strings = {"why", "hello", "there"};
+    
+    // Then
+    java.util.List<org.hamcrest.Matcher<? super String>> itemMatchers = new ArrayList<>();
+    itemMatchers.add(equalTo("why"));
+    itemMatchers.add(equalTo("hello"));
+    itemMatchers.add(endsWith("here"));
+    assertThat(strings, is(arrayContaining(itemMatchers)));
+}
+```
+
+* 배열에 입력 vararg matcher와 일치하는 항목이 순서대로 포함되어 있습니까?
+
+```java
+@Test
+public void test_arrayContaining_matchers() throws Exception {
+    // Given
+    String[] strings = {"why", "hello", "there"};
+    
+    // Then
+    assertThat(strings, is(arrayContaining(startsWith("wh"), equalTo("hello"), endsWith("here"))));
+}
+```
+
