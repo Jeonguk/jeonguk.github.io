@@ -131,3 +131,107 @@ public void test_arrayContaining_matchers() throws Exception {
 }
 ```
 
+``` arrayContainingInAnyOrder() ```
+
+* 배열에 대한 다양한 matchers, 배열의 길이는 matchers의 수와 일치해야하지만 순서는 중요하지 않습니다.
+* 배열에 주어진 모든 항목이 포함되어 있습니까?
+
+```java
+@Test
+public void test_arrayContainingInAnyOrder_items() throws Exception {
+    // Given
+    String[] strings = { "why", "hello", "there" };
+
+    // Then
+    assertThat(strings, is(arrayContainingInAnyOrder("hello", "there", "why")));
+}
+```
+
+* 배열에 Matchers의 입력 컬렉션과 일치하는 항목이 포함되어 있습니까?
+
+```java
+@Test
+public void test_arrayContainingInAnyOrder_collection_of_matchers() throws Exception {
+    // Given
+    String[] strings = { "why", "hello", "there" };
+
+    // Then
+    Set<org.hamcrest.Matcher<? super String>> itemMatchers = new HashSet<>();
+    itemMatchers.add(equalTo("hello"));
+    itemMatchers.add(equalTo("why"));
+    itemMatchers.add(endsWith("here"));
+    assertThat(strings, is(arrayContainingInAnyOrder(itemMatchers)));
+}
+```
+
+* 배열에 입력 vararg matcher와 일치하는 항목이 포함되어 있습니까?
+
+```java
+@Test
+public void test_arrayContainingInAnyOrder_matchers() throws Exception {
+    // Given
+    String[] strings = { "why", "hello", "there" };
+
+    // Then
+    assertThat(strings, is(arrayContainingInAnyOrder(endsWith("lo"), startsWith("the"), equalTo("why"))));
+}
+```
+
+``` arrayWithSize() ```
+
+* 배열이 특정 길이인지 확인하는 다양한 matchers.
+* 입력 배열의 길이가 정확히 지정 되었습니까?
+
+```java
+@Test
+public void test_arrayWithSize_exact() throws Exception {
+    // Given
+    String[] strings = { "why", "hello", "there" };
+
+    // Then
+    assertThat(strings, is(arrayWithSize(3)));
+}
+```
+
+* 입력 배열의 길이가 지정된 길이와 일치합니까?
+
+```java
+@Test
+public void test_arrayWithSize_matcher() throws Exception {
+    // Given
+    String[] strings = { "why", "hello", "there" };
+
+    // Then
+    assertThat(strings, is(arrayWithSize(greaterThan(2))));
+}
+```
+
+``` closeTo() ```
+
+* 값이 지정된 값의 예상 오차 범위 내에 있는지 확인하기 위해 Double 또는 BigDecimal과 함께 사용할 수있는 Matcher입니다.
+
+* Double
+
+```java
+@Test
+public void test_closeTo_double() throws Exception {
+    // Given
+    Double testValue = 6.3;
+
+    // Then
+    assertThat(testValue, is(closeTo(6, 0.5)));
+}
+```
+
+* BigDecimal
+
+```java
+@Test
+public void test_closeTo_bigDecimal() throws Exception {
+    // Given
+    BigDecimal testValue = new BigDecimal(324.0);
+
+    // Then
+    assertThat(testValue, is(closeTo(new BigDecimal(350), new BigDecimal(50))));
+}
+```
