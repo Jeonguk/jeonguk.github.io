@@ -235,3 +235,267 @@ public void test_closeTo_bigDecimal() throws Exception {
     assertThat(testValue, is(closeTo(new BigDecimal(350), new BigDecimal(50))));
 }
 ```
+
+``` comparesEqualTo() ```
+
+* 입력 값의 compareTo () 메서드를 사용하여 입력 일치 프로그램 값을 일치시키려는 Comparable 일치 프로그램을 만듭니다. compareTo () 메소드가 입력 일치 프로그램 값에 대해 0을 리턴하면 일치 프로그램이 일치하고 그렇지 않으면 일치하지 않습니다.
+
+```java
+@Test
+public void test_comparesEqualTo() throws Exception {
+    // Given
+    String testValue = "value";
+
+    // Then
+    assertThat(testValue, comparesEqualTo("value"));
+}
+```
+
+``` contains() ```
+
+* 입력 Iterable에 값이 포함되어 있는지 확인하는 데 사용할 수있는 다양한 matchers입니다. 값의 순서는 중요하며 Iterable의 항목 수는 테스트중인 값의 수와 일치해야합니다.
+
+* 입력 목록에 모든 값이 순서대로 포함되어 있습니까?
+
+```java
+@Test
+public void test_contains_items() throws Exception {
+    // Given
+    List<String> strings = Arrays.asList("why", "hello", "there");
+
+    // Then
+    assertThat(strings, contains("why", "hello", "there"));
+}
+```
+
+* 입력 목록에 입력 matchers 목록에있는 모든 matchers와 순차적으로 일치하는 항목이 있습니까?
+
+```java
+@Test
+public void test_contains_list_of_matchers() throws Exception {
+    // Given
+    List<String> strings = Arrays.asList("why", "hello", "there");
+
+    // Then
+    List<org.hamcrest.Matcher<? super String>> matchers = new ArrayList<>();
+    matchers.add(startsWith("wh"));
+    matchers.add(endsWith("lo"));
+    matchers.add(equalTo("there"));
+    assertThat(strings, contains(matchers));
+}
+```
+
+* 입력 목록에 입력 일치 프로그램과 일치하는 항목이 하나만 있습니까?
+
+```java
+@Test
+public void test_contains_single_matcher() throws Exception {
+    // Given
+    List<String> strings = Arrays.asList("hello");
+
+    // Then
+    assertThat(strings, contains(startsWith("he")));
+}
+```
+
+* 입력 목록에 입력 vararg matcher의 모든 matcher와 순차적으로 일치하는 항목이 있습니까?
+
+```java
+@Test
+public void test_contains_matchers() throws Exception {
+    // Given
+    List<String> strings = Arrays.asList("why", "hello", "there");
+
+    // Then
+    assertThat(strings, contains(startsWith("why"), endsWith("llo"), equalTo("there")));
+}
+```
+
+``` containsInAnyOrder() ```
+
+* 입력 Iterable에 값이 포함되어 있는지 확인하는 데 사용할 수있는 다양한 matchers입니다. 값의 순서는 중요하지 않지만 Iterable의 항목 수는 테스트 할 값의 수와 일치해야합니다.
+
+* 입력 목록에 모든 값이 순서대로 포함되어 있습니까?
+
+```java
+@Test
+public void test_containsInAnyOrder_items() throws Exception {
+    // Given
+    List<String> strings = Arrays.asList("why", "hello", "there");
+
+    // Then
+    assertThat(strings, containsInAnyOrder("hello", "there", "why"));
+}
+```
+
+* 입력리스트에 입력 matchers리스트의 모든 matcher와 어느 순서로도 일치하는 항목이 포함되어 있습니까?
+
+```java
+@Test
+public void test_containsInAnyOrder_list_of_matchers() throws Exception {
+    // Given
+    List<String> strings = Arrays.asList("why", "hello", "there");
+
+    // Then
+    List<org.hamcrest.Matcher<? super String>> matchers = new ArrayList<>();
+    matchers.add(equalTo("there"));
+    matchers.add(startsWith("wh"));
+    matchers.add(endsWith("lo"));		
+    assertThat(strings, containsInAnyOrder(matchers));
+}
+```
+
+* 입력 목록에 입력 vararg matcher의 모든 matcher와 일치하는 항목이 순서대로 포함되어 있습니까?
+
+```java
+@Test
+public void test_containsInAnyOrder_matchers() throws Exception {
+    // Given
+    List<String> strings = Arrays.asList("why", "hello", "there");
+
+    // Then
+    assertThat(strings, containsInAnyOrder(endsWith("llo"), equalTo("there"), startsWith("why")));
+}
+```
+
+``` containsString() ```
+
+* 테스트 대상의 String가 지정된 부분 캐릭터 라인을 포함한 경우에 일치하는 Matcher입니다.
+
+```java
+@Test
+public void test_containsString() throws Exception {
+    // Given
+    String testValue = "value";
+
+    // Then
+    assertThat(testValue, containsString("alu"));
+}
+```
+
+``` empty() ```
+
+* 입력 컬렉션 인 isEmpty () 메서드가 true를 반환하면 일치하는 Matcher.
+
+```java
+@Test
+public void test_empty() throws Exception {
+    // Given
+    Set<String> testCollection = new HashSet<>();
+
+    // Then
+    assertThat(testCollection, is(empty()));
+}
+```
+
+``` emptyArray() ```
+
+* 입력 배열의 길이가 0 인 경우 일치하는 Matcher입니다.
+
+```java
+@Test
+public void test_emptyArray() throws Exception {
+    // Given
+    String[] testArray = new String[0];
+
+    // Then
+    assertThat(testArray, is(emptyArray()));
+}
+```
+
+``` emptyCollectionOf() ```
+
+* 입력 컬렉션이 지정된 유형이고 비어있는 경우 일치하는 유형 보증 가해저입니다.
+
+```java
+@Test
+public void test_emptyCollectionOf() throws Exception {
+    // Given
+    Set<String> testCollection = new HashSet<>();
+
+    // Then
+    assertThat(testCollection, is(emptyCollectionOf(String.class)));
+}
+```
+
+```  emptyIterable() ```
+
+* 입력 Iterable에 값이없는 경우 일치하는 Matcher입니다.
+
+```java
+@Test
+public void test_emptyIterable() throws Exception {
+    // Given
+    Set<String> testCollection = new HashSet<>();
+
+    // Then
+    assertThat(testCollection, is(emptyIterable()));
+}
+```
+
+``` emptyIterableOf() ```
+
+* 입력 가능한 Iterable에 값이없고 지정된 유형 인 경우 일치하는 Typesafe Matcher입니다.
+
+```java
+@Test
+public void test_emptyIterableOf() throws Exception {
+    // Given
+    Set<String> testCollection = new HashSet<>();
+
+    // Then
+    assertThat(testCollection, is(emptyIterableOf(String.class)));
+}
+```
+
+``` endsWith() ```
+
+* 입력 문자열이 지정된 하위 문자열로 끝나는 경우 일치하는 Matcher.
+
+```java
+@Test
+public void test_endsWith() throws Exception {
+    // Given
+    String testValue = "value";
+
+    // Then
+    assertThat(testValue, endsWith("lue"));
+}
+```
+
+``` equalTo() ```
+
+* 입력 값이 지정된 테스트 값과 논리적으로 동일한 경우에 일치하는 Matcher입니다. 배열의 길이를 검사하고 입력 테스트 배열의 모든 값이 논리적으로 지정된 배열의 값과 같은지 확인하는 경우에도 Array에 사용할 수 있습니다.
+
+* Single value.
+
+
+```java
+@Test
+public void test_equalTo_value() throws Exception {
+    // Given
+    String testValue = "value";
+
+    // Then
+    assertThat(testValue, equalTo("value"));
+}
+```
+
+* Array.
+
+```java
+@Test
+public void test_equalTo_array() throws Exception {
+    // Given
+    String[] testValues = { "why", "hello", "there" };
+
+    // Then
+    String[] specifiedValues = { "why", "hello", "there" };
+    assertThat(testValues, equalTo(specifiedValues));
+}
+```
+
+``` equalToIgnoringCase() ```
+
+
+
