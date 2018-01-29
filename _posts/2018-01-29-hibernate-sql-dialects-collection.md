@@ -1,11 +1,14 @@
 ---
 layout: post
 title:  "Hibernate SQL Dialects Collection"
-date:   2018-01-29 15:52:10 +0700
+date:   2018-01-29 16:21:10 +0700
 categories: [databse,configuration,spring]
 ---
 
 # Hibernate SQL Dialects Collection
+
+* Hibernate SQL Dialect는 Hibernate 어플리케이션에게 데이터베이스와 통신하기 위해 어떤 SQL 언어가 사용되어야하는지 알려준다.
+
 
 1. ``` DB2 ```
 
