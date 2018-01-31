@@ -7,7 +7,7 @@ categories: [server]
 
 # Installing Nginx in Mac OS X
 
-### Install with brew
+``` Install with brew ```
 
 ```
 $ brew update
