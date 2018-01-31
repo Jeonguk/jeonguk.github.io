@@ -18,21 +18,25 @@ $ brew install nginx
 ```
 
 * RUN
+
 ```
 $ sudo nginx
 ```
 
 * Testing
+
 ```
 http://localhost:8080/
 ```
 
 * Congiguration (default place)
+
 ```
 /usr/local/etc/nginx/nginx.conf
 ```
 
 * nginx server stop
+
 ```
 $ sudo nginx -s stop
 ```
@@ -40,6 +44,7 @@ $ sudo nginx -s stop
 * default port (8080) change -> 80
 
 * change
+
 ```
  server {
 listen       8080;
@@ -52,7 +57,9 @@ location / {
     index  index.html index.htm;
 }
 ```
-to
+
+* to
+
 ```
 server {
 listen       80;
@@ -67,16 +74,19 @@ location / {
 ```
 
 * relaunch nginx
+
 ```
 sudo nginx
 ```
 
-* nginx html folder (brew install only) 
+* nginx html folder (brew install only)
+
 ```
 /usr/local/Cellar/nginx/1.12.2_1/html
 ```
 
 * defualt path configuration change
+
 ```
 server {
 listen       80;
@@ -89,7 +99,9 @@ location / {
     index  index.html index.htm;
 }
 ```
-to
+
+* to
+
 ```
  server {
 listen       80;
