@@ -2,7 +2,7 @@
 layout: post
 title:  "junit4-test-methods"
 date:   2018-02-01 10:45:10 +0700
-categories: [testing,java]
+categories: [juni,testing,java]
 ---
 
 # Junit4 Test Methods
@@ -12,7 +12,7 @@ categories: [testing,java]
 
 ``` Annotations ```
 
-| Mtehod                             |Path                                                             |
+| JUnit 4                            | Description                                                     |
 |------------------------------------|:----------------------------------------------------------------|
 | import org.junit.*                 | annotation 사용 import                                          |
 | @Test                              | 메서드를 테스트 메서드로 식별합니다.                            |
