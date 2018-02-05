@@ -65,6 +65,12 @@ $ bin/kafka-console-consumer.sh --zookeeper <ZooKeeper Hostname>:2181 --topic lo
 http://flume.apache.org/FlumeUserGuide.html
 ```
 
+``` Fake Logger generator ```
+
+```
+https://github.com/bitsofinfo/log-generator
+```
+
 ``` Flume configuration ```
 
 * conf/flume-kafka.config
