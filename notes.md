@@ -12,3 +12,9 @@ permalink: /notes/
 ```
 http://blog.csdn.net/luanlouis/article/details/51155821
 ```
+
+``` JAVA 8 ```
+
+```
+http://www.topjavatutorial.com/java-8-2/
+```
