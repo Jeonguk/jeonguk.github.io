@@ -25,13 +25,13 @@ categories: [java,language]
 
 * 람다의 가장 단순하고 일반적인 경우는 하나의 값을 받아서 다른 값을 반환하는 메소드를 가진 함수 인터페이스입니다. 이 단일 인수의 함수는 인수의 유형과 반환 값에 의해 매개 변수화 된 Function 인터페이스로 표현됩니다.
 
-```
+```java
 public interface Function<T, R> { … }
 ```
 
 * 표준 라이브러리의 Function 유형의 사용법 중 하나는 Map.computeIfAbsent method 에서 값을 반환하지만 key 가 map 에없는 경우 값을 계산하는 Map.computeIfAbsent 메소드입니다. 값을 계산하기 위해 전달 된 Function 구현을 사용합니다.
 
-```
+```java
 Map<String, Integer> nameMap = new HashMap<>();
 Integer value = nameMap.computeIfAbsent("John", s -> s.length());
 ```
@@ -40,13 +40,13 @@ Integer value = nameMap.computeIfAbsent("John", s -> s.length());
 
 * 메소드가 호출되는 객체는 실제로 메소드의 암시 적 첫 번째 인수이며, 인스턴스 메소드 길이를 함수 인터페이스로 캐스팅 할 수 있습니다.
 
-```
+```java
 Integer value = nameMap.computeIfAbsent("John", String::length);
 ```
 
 * Function interface 에는 여러 함수를 하나로 결합하여 순차적으로 실행할 수있는 기본 작성 메서드가 있습니다.
 
-```
+```java
 Function<Integer, String> intToString = Object::toString;
 Function<String, String> quote = s -> "'" + s + "'";
  
@@ -68,7 +68,7 @@ assertEquals("'5'", quoteIntToString.apply(5));
 
 * 예를 들어 짧지 만 바이트를 반환하는 함수에 대해 기본 기능 인터페이스가 없지만 직접 작성하지 못하게하는 기능은 없습니다.
 
-```
+```java
 @FunctionalInterface
 public interface ShortToByteFunction {
  
@@ -79,7 +79,7 @@ public interface ShortToByteFunction {
 
 * 이제 ShortToByteFunction에 의해 정의 된 규칙을 사용하여 short 배열을 byte 배열로 변환하는 메소드를 작성할 수 있습니다.
 
-```
+```java
 short[] array = {(short) 1, (short) 2, (short) 3};
 byte[] transformedArray = transformArray(array, s -> (byte) (s * 2));
  
@@ -95,7 +95,7 @@ assertArrayEquals(expectedArray, transformedArray);
 
 * 급여에 대한 새로운 값을 계산하고 반환하기 위해 키와 이전 값을 받는 BiFunction 구현을 사용합시다.
 
-```
+```java
 Map<String, Integer> salaries = new HashMap<>();
 salaries.put("John", 40000);
 salaries.put("Freddy", 30000);
@@ -109,7 +109,7 @@ salaries.replaceAll((name, oldValue) ->
 
 * Supplier 기능 인터페이스는 인수를 취하지 않는 또 다른 Function specialization 입니다. 일반적으로 lazy 값 생성에 사용됩니다. 예를 들어, double 값을 제곱하는 함수를 정의합시다. 그것은 value 그 자체가 아니라이 value의 Supplier 를 받을 것입니다.
 
-```
+```java
 public double squareLazy(Supplier<Double> lazyValue) {
     return Math.pow(lazyValue.get(), 2);
 }
@@ -117,7 +117,7 @@ public double squareLazy(Supplier<Double> lazyValue) {
 
 * 이를 통해 Supplier 구현을 사용하여 이 함수를 호출 할 때 lazy 인수를 생성 할 수 있습니다. 이 인수의 생성에 상당한 시간이 소요될 때 유용 할 수 있습니다. Guava의 sleepUninterruptibly 메소드를 사용하여 시뮬레이션합니다.
 
-```
+```java
 Supplier<Double> lazyValue = () -> {
     Uninterruptibles.sleepUninterruptibly(1000, TimeUnit.MILLISECONDS);
     return 9d;
@@ -128,7 +128,7 @@ Double valueSquared = squareLazy(lazyValue);
 
 * Supplier 의 또 다른 사용 사례는 시퀀스 생성을위한 논리를 정의하는 것입니다. 이를 증명하기 위해 정적 Stream.generate 메서드를 사용하여 피보나치 수의 스트림을 만듭니다.
 
-```
+```java
 int[] fibs = {0, 1};
 Stream<Integer> fibonacci = Stream.generate(() -> {
     int result = fibs[1];
@@ -149,14 +149,14 @@ Stream<Integer> fibonacci = Stream.generate(() -> {
 
 * 예를 들어, 이름 목록에 있는 모든 사람에게 인사말을 콘솔에 인쇄. List.forEach 메서드에 전달 된 lambda는 Consumer functional interface 를 구현합니다.
 
-```
+```java
 List<String> names = Arrays.asList("John", "Freddy", "Samuel");
 names.forEach(name -> System.out.println("Hello, " + name));
 ```
 
 * primitive 값을 인수로받는 DoubleConsumer, IntConsumer 및 LongConsumer의 특수화 된 버전도 있습니다. 더 흥미로운 것은 BiConsumer 인터페이스입니다. 사용 사례 중 하나는 map의 항목을 반복하는 것입니다.
 
-```
+```java
 Map<String, Integer> ages = new HashMap<>();
 ages.put("John", 25);
 ages.put("Freddy", 24);
@@ -173,7 +173,7 @@ ages.forEach((name, age) -> System.out.println(name + " is " + age + " years old
 
 * Predicate functional interface는 생성 된 값을 수신하고 boolean을 리턴하는 함수의 특수화입니다. Predicate 람다의 일반적인 사용 사례는 값 컬렉션을 필터링하는 것입니다.
 
-```
+```java
 List<String> names = Arrays.asList("Angela", "Aaron", "Bob", "Claire", "David");
  
 List<String> namesWithA = names.stream()
@@ -189,7 +189,7 @@ List<String> namesWithA = names.stream()
 
 * Operator interface 는 동일한 값 유형을 수신하고 리턴하는 함수의 특별한 경우입니다. UnaryOperator 인터페이스는 단일 인수를 받습니다. Collections API의 사용 사례 중 하나는 목록의 모든 값을 동일한 유형의 계산 된 값으로 대체하는 것입니다.
 
-```
+```java
 List<String> names = Arrays.asList("bob", "josh", "megan");
  
 names.replaceAll(name -> name.toUpperCase());
@@ -198,13 +198,13 @@ names.replaceAll(name -> name.toUpperCase());
 * List.replaceAll 함수는 자리에있는 값을 대체하므로 void를 반환합니다. 목적에 맞추기 위해 목록의 값을 변환하는 데 사용되는 람다는 받은 결과 유형과 동일한 결과 유형을 반환해야합니다. 이 때문에 UnaryOperator가 유용합니다.
 * 물론 name -> name.toUpperCase () 대신에 메서드 참조를 간단히 사용할 수 있습니다.
 
-```
+```java
 names.replaceAll(String::toUpperCase);
 ```
 
 * BinaryOperator의 가장 흥미로운 사용 사례 중 하나는 축소 작업 입니다. 모든 값의 합계에 정수 컬렉션을 집계하려 한다고 가정합니다. Stream API를 사용하면 콜렉터를 사용하여이 작업을 수행 할 수 있지만 보다 일반적인 방법은 reduce 메소드를 사용하는 것입니다.
 
-```
+```java
 List<Integer> values = Arrays.asList(3, 5, 8, 9, 12);
  
 int sum = values.stream()
@@ -213,7 +213,7 @@ int sum = values.stream()
 
 * reduce 메소드는 초기 누적 값과 BinaryOperator 함수를 수신합니다. 이 함수의 인수는 동일한 유형의 값 쌍이고 함수 자체에는 동일한 유형의 단일 값으로 이들을 조인하기위한 논리가 포함됩니다. 전달 된 함수는 연관성이 있어야합니다. 즉, 값 집계의 순서는 중요하지 않습니다. 즉 다음 조건이 충족되어야합니다.
 
-```
+```java
 op.apply(a, op.apply(b, c)) == op.apply(op.apply(a, b), c)
 ```
 
@@ -224,7 +224,7 @@ op.apply(a, op.apply(b, c)) == op.apply(op.apply(a, b), c)
 
 * 모든 Functional Interface가 Java 8에 등장하는 것은 아닙니다. 이전 Java 버전의 많은 인터페이스는 FunctionalInterface의 제한 조건을 준수하며 람다 (lambdas)로 사용될 수 있습니다. 가장 중요한 예는 동시성 API에서 사용되는 Runnable 및 Callable 인터페이스입니다. Java 8에서 이러한 인터페이스는 @FunctionalInterface 주석으로 표시됩니다. 이렇게하면 동시성 코드를 크게 단순화 할 수 있습니다.
 
-```
+```java
 Thread thread = new Thread(() -> System.out.println("Hello From Another Thread"));
 thread.start();
 ```
