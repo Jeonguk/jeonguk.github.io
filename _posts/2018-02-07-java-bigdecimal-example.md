@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "java8-functional-interfaces"
+title:  "java-bigdecimal-example"
 date:   2018-02-07 11:43:10 +0700
 categories: [java,language]
 ---
