@@ -33,4 +33,64 @@ Maven은 Java 생태계에서 가장 많이 사용되는 빌드 도구 중 하�
 </dependency>
 ```
 
+``` Provided ```
 
+```xml
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>servlet-api</artifactId>
+    <version>2.5</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+
+``` Runtime ```
+
+```xml
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>6.0.6</version>
+    <scope>runtime</scope>
+</dependency>
+```
+
+``` Test ```
+
+```xml
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+```
+
+``` System ```
+
+```xml
+<dependency>
+    <groupId>com.baeldung</groupId>
+    <artifactId>custom-dependency</artifactId>
+    <version>1.3.2</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/libs/custom-dependency-1.3.2.jar</systemPath>
+</dependency>
+```
+
+``` Import ```
+
+```xml
+<dependency>
+    <groupId>com.baeldung</groupId>
+    <artifactId>custom-project</artifactId>
+    <version>1.3.2</version>
+    <type>pom</type>
+    <scope>import</scope>
+</dependency>
+```
+
+
+### Maven document
+- https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
