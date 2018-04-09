@@ -10,11 +10,13 @@ categories: [java,spring]
 ```Maven Command-Line Arguments```
 
 ### Spring Boot 1.x
+- For Spring Boot 1.x, we can pass the arguments to our application using -Drun.arguments:
 
 ```
 mvn spring-boot:run -Drun.arguments=--customArgument=custom
 ```
 
+- multiple parameters
 ```
 mvn spring-boot:run -Drun.arguments=--spring.main.banner-mode=off,--customArgument=custom
 ```
@@ -34,6 +36,45 @@ bootRun {
     }
 }
 ```
+
+- command-line arguments
+```
+./gradlew bootRun -Pargs=--spring.main.banner-mode=off,--customArgument=custom
+```
+
+```Overriding System Properties```
+- application.properties
+
+```
+server.port=8081
+spring.application.name=SampleApp
+```
+
+- Spring Boot 1.x
+```
+mvn spring-boot:run -Drun.arguments=--server.port=8085
+```
+
+- Spring Boot 2.x
+```
+mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8085
+```
+
+
+```Accessing Command-Line Arguments```
+
+```java
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+    public static void main(String[] args) {
+        for(String arg:args) {
+            System.out.println(arg);
+        }
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+
 
 
 
