@@ -9,11 +9,8 @@ categories: [java,language]
 
 ### 표준 Java 클래스를 사용하여 클래스 패스, URL 또는 JAR 파일에서 파일을 읽는 방법을 살펴 본다
 
-```Setup```
 
-```
-using Hamcrest matchers
-```
+- using Hamcrest matchers
 
 ```java
 
