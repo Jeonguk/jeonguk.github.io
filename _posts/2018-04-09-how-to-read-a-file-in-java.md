@@ -11,9 +11,6 @@ categories: [java,language]
 
 ```Setup```
 
-- using Hamcrest
-
-
 ```java
 private String readFromInputStream(InputStream inputStream)
   throws IOException {
