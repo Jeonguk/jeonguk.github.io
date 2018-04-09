@@ -11,7 +11,12 @@ categories: [java,language]
 
 ```Setup```
 
+```
+using Hamcrest matchers
+```
+
 ```java
+
 private String readFromInputStream(InputStream inputStream)
   throws IOException {
     StringBuilder resultStringBuilder = new StringBuilder();
@@ -24,6 +29,7 @@ private String readFromInputStream(InputStream inputStream)
     }
   return resultStringBuilder.toString();
 }
+
 ```
 
 ```Read File from Classpath```
