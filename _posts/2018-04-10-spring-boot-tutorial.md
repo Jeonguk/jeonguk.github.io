@@ -66,7 +66,7 @@ mvn archetype:generate -DgroupId=com.jeonguk.example -DartifactId=JCG-SpringBoot
 
 - 코드를 JAR에 패키지하기 위해 JAR 또는 WAR로 응용 프로그램 자체의 패키징을 관리하는 훌륭한 도구 인 spring-boot-maven-plugin을 사용할 것입니다. 다음은 종속 파일에 추가 할 수있는 방법입니다.
 
-```pom.xml```
+- pom.xml
 
 ```xml
 <build>
