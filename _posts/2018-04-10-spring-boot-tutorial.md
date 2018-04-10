@@ -21,7 +21,7 @@ mvn archetype:generate -DgroupId=com.jeonguk.example -DartifactId=JCG-SpringBoot
 - spring-boot-starter-tes
     - 이 의존성은 모든 테스트 관련 JAR을 JUnit 및 Mockito와 같은 프로젝트로 수집합니다.
 
-```pom.xml```
+### pom.xml
 
 ```xml
 <parent>
@@ -173,7 +173,7 @@ mvn dependency:tree
 
 - Maven은 우수한 빌드 시스템이지만, Gradle을 선호하는 경우 pom.xml 빌드 파일의 Gradle에 해당합니다.
 
-```build.gradle```
+### build.gradle
 
 ```
 buildscript {
