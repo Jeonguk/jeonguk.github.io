@@ -9,7 +9,7 @@ categories: [java,language]
 
 ---
 
-### ava에서 경과 시간을 측정하는 방법, 표준 Java 클래스와 경과 시간을 측정하는 기능을 제공하는 외부 패키지
+### java에서 경과 시간을 측정하는 방법, 표준 Java 클래스와 경과 시간을 측정하는 기능을 제공하는 외부 패키지
 
 ### Simple Measurements
 
